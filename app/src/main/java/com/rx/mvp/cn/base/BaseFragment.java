@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.r.mvp.cn.MvpFragment;
+import com.rx.mvp.cn.model.RApp;
 
 import java.util.List;
 
@@ -57,6 +58,8 @@ public abstract class BaseFragment extends MvpFragment implements EasyPermission
         if (unBinder != null) {
             unBinder.unbind();
         }
+        //监听内存泄漏
+        RApp.watchLeakCanary(getActivity(), this);
     }
 
     /**

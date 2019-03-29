@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.r.mvp.cn.MvpAppCompatActivity;
 import com.rx.mvp.cn.manager.ActivityStackManager;
+import com.rx.mvp.cn.model.RApp;
 
 import java.util.List;
 
@@ -46,6 +47,8 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements EasyP
             unBinder.unbind();
         }
         ActivityStackManager.getManager().remove(this);
+        //监听内存泄漏
+        RApp.watchLeakCanary(this, this);
     }
 
     @Override

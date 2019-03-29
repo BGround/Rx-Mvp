@@ -152,6 +152,12 @@ dependencies {
     compile 'com.zhy:base-adapter:3.0.3'
     /*图片选择*/
     compile 'com.lzy.widget:imagepicker:0.6.1'
+    /*内存泄漏检测(正式服不安装apk)*/
+    //compile 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    officialCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    intranetCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    extranetCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
 
     compile project(':RHttp')
     compile project(':Mvp')

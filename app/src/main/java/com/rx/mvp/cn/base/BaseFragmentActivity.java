@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.r.mvp.cn.MvpFragmentActivity;
 import com.rx.mvp.cn.manager.ActivityStackManager;
+import com.rx.mvp.cn.model.RApp;
 
 import java.util.List;
 
@@ -45,6 +46,8 @@ public abstract class BaseFragmentActivity extends MvpFragmentActivity implement
             unBinder.unbind();
         }
         ActivityStackManager.getManager().remove(this);
+        //监听内存泄漏
+        RApp.watchLeakCanary(this, this);
     }
 
     @Override
